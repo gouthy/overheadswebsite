@@ -1,0 +1,21 @@
+#address-input {
+  width: 300px;
+}
+#address-suggestions {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.address-suggestion {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.address-suggestion:hover {
+  background-color: #e8e8e8;
+}

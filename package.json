@@ -1,0 +1,17 @@
+{
+  "name": "finaldroughtwebsite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "leaflet-geosearch": "^3.8.0"
+  }
+}
