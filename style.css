@@ -11,11 +11,20 @@
   padding: 10px;
 }
 
-.address-suggestion {
-  cursor: pointer;
-  padding: 5px 10px;
-}
+    .address-suggestion {
+      cursor: pointer;
+      padding: 5px 10px;
+    }
 
-.address-suggestion:hover {
-  background-color: #e8e8e8;
-}
+    .address-suggestion:hover {
+      background-color: #e8e8e8;
+    }
+
+    #result-container {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
