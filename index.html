@@ -7,14 +7,35 @@
     <title>Vite App</title>
   </head>
   <body>
-    <input type="text" id="address-input" placeholder="Search for an address" />
+    <main class="bck-img">
+      <div class="header-background">
+        <header class="header container">
+          <div class="logo-wrapper">
+            <img src="/svg/logo-no-background.png" alt="Logo" class="toplogo" >
+           </div>
+          <nav class="nav">
+           <a href="#">About</a>
+           <a href="#">Overheads</a>
+           <a href="#">Methodology</a>
+          </nav>
+        </header>
+      </div>
+    </main>
+    <div class="main-body">
+      <div class="front-matter">
+        <h1 class="first-sentence"><span>How can environment impact <br> your home maintenance?</span></h1>
+        <h3>Get an <u style="text-decoration-color:rgb(255, 255, 0)">Instant</u> assessment</h3>
+      </div>
+      <div id="search-container">
 
+    <input type="text" id="address-input" placeholder="Search for an address" />
     <div id="address-suggestions"></div>
-    <div id="result-container">
+</div>
+    <div class="result-container">
       <p id="latitude"></p>
       <p id="longitude"></p>
     </div>
-    <div id="app"></div>
+  </div>
 
     <script type="module" src="/main.js"></script>
   </body>

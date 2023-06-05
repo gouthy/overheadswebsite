@@ -5,7 +5,8 @@ const provider = new OpenStreetMapProvider({
   params: {
     email: 'goutam.iitbbs@gmail.com',
     searchText: 'nominatim',
-    delay: 500, // Delay in milliseconds between consecutive API calls
+    'accept-language': 'en', // render results in English
+    countrycodes: 'us', 
   },
 });
 
@@ -16,8 +17,6 @@ searchInput.addEventListener('input', handleAddressInput);
 
 const suggestionsContainer = document.getElementById('address-suggestions');
 const resultContainer = document.getElementById('result-container');
-const latitudeElement = document.getElementById('latitude');
-const longitudeElement = document.getElementById('longitude');
 function handleAddressInput(event) {
   clearTimeout(debounceTimeout);
 
@@ -59,7 +58,7 @@ function handleAddressInput(event) {
         .catch((error) => {
           console.error('Error retrieving address suggestions:', error);
         });
-    }, 300);
+    }, 500);
   }
 
     function handleAddressSelection(result) {
@@ -68,14 +67,23 @@ function handleAddressInput(event) {
       const lng = result.x;
 
       searchInput.value = selectedAddress;
-      hideAddressSuggestions();
-      clearAddressSuggestions();
-      showResult(lat, lng);
+      clearAddressSuggestions(suggestionsContainer);
 
+      const apiUrl = `https://1ffxw9qp7k.execute-api.us-east-1.amazonaws.com/api/v1/${lat}&${lng}`;
 
-      console.log('Latitude:', lat);
-      console.log('Longitude:', lng);
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const resultContainer = document.getElementById('result-container');
+          resultContainer.textContent = JSON.stringify(data);
+          showResult();
+          console.log(data.Score);
+        })
+        .catch((error) => {
+          console.error('Error fetching data from API:', error);
+        });
     }
+
 
     function showAddressSuggestions() {
       suggestionsContainer.style.display = 'block';
@@ -90,15 +98,13 @@ function handleAddressInput(event) {
         suggestionsContainer.removeChild(suggestionsContainer.firstChild);
       }
     }
-    function showResult(lat, lng) {
-      latitudeElement.textContent = `Latitude: ${lat}`;
-      longitudeElement.textContent = `Longitude: ${lng}`;
+    function showResult() {
       resultContainer.style.display = 'block';
     }
-
     function hideResult() {
       resultContainer.style.display = 'none';
     }
     if (searchInput.value.trim() === '') {
       hideAddressSuggestions();
     }
+
