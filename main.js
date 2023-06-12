@@ -65,19 +65,33 @@ function handleAddressInput(event) {
       const selectedAddress = result.label;
       const lat = result.y;
       const lng = result.x;
-
+      console.log(result);
       searchInput.value = selectedAddress;
       clearAddressSuggestions(suggestionsContainer);
-
+      hideAddressSuggestions();
       const apiUrl = `https://1ffxw9qp7k.execute-api.us-east-1.amazonaws.com/api/v1/${lat}&${lng}`;
 
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
           const resultContainer = document.getElementById('result-container');
-          resultContainer.textContent = JSON.stringify(data);
+          let circularProgress = document.querySelector(".water-progress");
+          let progressValue = document.querySelector(".water-value");
+          let progressStartValue = 0;
+          let progressEndValue = Math.round(data.totaldd*0.1585*127.3*24/1000);
+          const electrichighest = 8834*0.1585*127.3*24/1000;
+          let speed = 0;
           showResult();
-          console.log(data.Score);
+          console.log(progressEndValue);
+          let progress = setInterval(() => {
+            progressStartValue++;
+            progressValue.textContent = `${progressStartValue}`;
+            if (progressStartValue === progressEndValue) {
+           
+              clearInterval(progress);
+            }
+            circularProgress.style.background = `conic-gradient(#2EB62C ${progressStartValue*100*3.6/electrichighest}deg,#e3e3e3 0deg)`;
+          }, speed);
         })
         .catch((error) => {
           console.error('Error fetching data from API:', error);

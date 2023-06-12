@@ -6,6 +6,8 @@ html, body{
   background-image:  linear-gradient(rgba(1, 24, 1, 0.6), rgba(1, 24, 1, 0.2)),url(img/pagebackground5.png);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+
 }
 
 .toplogo{
@@ -96,9 +98,35 @@ a{
       display: none;
       margin-top: 10px;
       padding: 10px;
-      background-color: #f8f8f8;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-
+    .water-progress {
+      position: relative;
+      height: 120px;
+      width: 120px;
+      background: conic-gradient(#7d2 3.6deg,#e3e3e3 0deg);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .water-progress::before {
+      content: "";
+      position: absolute;
+      height: 80px;
+      width: 80px;
+      background-color: #f0ffff;
+      border-radius: 50%;
+    }
+    .water-value {
+      position: relative;
+      font-size: 35px;
+    }
+    .watertext {
+      font-size: 25px;
+      font-weight: 500;
+      color: white;
+    }
     
