@@ -75,23 +75,33 @@ function handleAddressInput(event) {
         .then((response) => response.json())
         .then((data) => {
           const resultContainer = document.getElementById('result-container');
-          let circularProgress = document.querySelector(".water-progress");
-          let progressValue = document.querySelector(".water-value");
+          let energyProgress = document.querySelector(".energy-progress");
+          let energyValue = document.querySelector(".energy-value");
           let progressStartValue = 0;
-          let progressEndValue = Math.round(data.totaldd*0.1585*127.3*24/1000);
-          const electrichighest = 8834*0.1585*127.3*24/1000;
+          let progressEndValue = Math.round(data.totaldd*3*0.15*0.65/12);
+          const electrichighest = 8835*3*0.15*0.65/12;
           let speed = 0;
           showResult();
           console.log(progressEndValue);
           let progress = setInterval(() => {
             progressStartValue++;
-            progressValue.textContent = `${progressStartValue}`;
+            energyValue.textContent = `${progressStartValue}`;
+//          energyValue.textContent = `${progressEndValue}`;
             if (progressStartValue === progressEndValue) {
-           
               clearInterval(progress);
             }
-            circularProgress.style.background = `conic-gradient(#2EB62C ${progressStartValue*100*3.6/electrichighest}deg,#e3e3e3 0deg)`;
+            if (progressEndValue <= electrichighest/2) {
+              energyProgress.style.background = `conic-gradient(#2EB62C ${progressEndValue*100*3.6/electrichighest}deg,#e3e3e3 0deg)`;
+            } else if (progressEndValue > electrichighest/2 && progressEndValue <= 3*electrichighest/4) {
+              energyProgress.style.background = `conic-gradient(#FDFD96 ${progressEndValue*100*3.6/electrichighest}deg,#e3e3e3 0deg)`;
+            } else {
+              energyProgress.style.background = `conic-gradient(#FF0000 ${progressEndValue*100*3.6/electrichighest}deg,#e3e3e3 0deg)`;
+            } 
           }, speed);
+
+
+
+
         })
         .catch((error) => {
           console.error('Error fetching data from API:', error);
@@ -113,7 +123,7 @@ function handleAddressInput(event) {
       }
     }
     function showResult() {
-      resultContainer.style.display = 'block';
+      resultContainer.style.display = 'flex';
     }
     function hideResult() {
       resultContainer.style.display = 'none';

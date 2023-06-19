@@ -27,16 +27,35 @@
         <h3>Get an <u style="text-decoration-color:rgb(255, 255, 0)">Instant</u> assessment</h3>
       </div>
       <div id="search-container">
-
     <input type="text" id="address-input" placeholder="Search for an address" />
     <div id="address-suggestions"></div>
   </div>
   <div id="result-container">
-    <div class="water-progress">
-      <span class="water-value">30%</span>
+    <div id = total>
+    <div class="total-progress">
+      <span class="total-value">30%</span>
     </div>
-    <span class="watertext">Drought value</span>
-  </div>
+    <span class="totaltext">Total Costs</span>
+    </div>
+    <div id = energy>
+      <div class="energy-progress">
+        <span class="energy-value">30%</span>
+      </div>
+      <span class="energytext">Heat and Cooling</span>
+      </div>
+      <div id = quality>
+        <div class="quality-progress">
+          <span class="quality-value">30%</span>
+        </div>
+        <span class="qualitytext">Water quality</span>
+        </div>
+        <div id = quantity>
+          <div class="quantity-progress">
+            <span class="quantity-value">30%</span>
+          </div>
+          <span class="watertext">Water quantity</span>
+          </div>
+    </div>
 </div>
 
     <script type="module" src="/main.js"></script>

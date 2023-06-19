@@ -96,15 +96,18 @@ a{
 
     #result-container {
       display: none;
-      margin-top: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
+      margin-top: 50px;
       border-radius: 4px;
+      justify-content: center;
+      align-items: center;
+      column-gap: 100px;
+
+      
     }
-    .water-progress {
+    .energy-progress {
       position: relative;
-      height: 120px;
-      width: 120px;
+      height: 200px;
+      width: 200px;
       background: conic-gradient(#7d2 3.6deg,#e3e3e3 0deg);
       border-radius: 50%;
       display: flex;
@@ -112,15 +115,15 @@ a{
       align-items: center;
     }
     
-    .water-progress::before {
+    .energy-progress::before {
       content: "";
       position: absolute;
-      height: 80px;
-      width: 80px;
+      height: 120px;
+      width: 120px;
       background-color: #f0ffff;
       border-radius: 50%;
     }
-    .water-value {
+    .energy-value {
       position: relative;
       font-size: 35px;
     }
@@ -128,5 +131,6 @@ a{
       font-size: 25px;
       font-weight: 500;
       color: white;
+      display: flex;
     }
     
