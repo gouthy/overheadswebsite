@@ -14,6 +14,8 @@ html, body{
   max-width:100px; 
   max-height:100px; 
   padding-left: 10px;
+  text-align: center;
+
 }
 
 a{
@@ -126,11 +128,100 @@ a{
     .energy-value {
       position: relative;
       font-size: 35px;
+
     }
-    .watertext {
+    .energytext {
       font-size: 25px;
       font-weight: 500;
       color: white;
       display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    
+    .quality-progress {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      background: conic-gradient(#7d2 3.6deg,#e3e3e3 0deg);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
+    .quality-progress::before {
+      content: "";
+      position: absolute;
+      height: 120px;
+      width: 120px;
+      background-color: #f0ffff;
+      border-radius: 50%;
+    }
+    .quality-value {
+      position: relative;
+      font-size: 35px;
+    }
+    .qualitytext {
+      font-size: 25px;
+      font-weight: 500;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .quantity-progress {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      background: conic-gradient(#7d2 3.6deg,#e3e3e3 0deg);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .quantity-progress::before {
+      content: "";
+      position: absolute;
+      height: 120px;
+      width: 120px;
+      background-color: #f0ffff;
+      border-radius: 50%;
+    }
+    .quantity-value {
+      position: relative;
+      font-size: 35px;
+    }
+
+    .quantitytext {
+      font-size: 25px;
+      font-weight: 500;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .tooltip {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      color: black;
+      padding: 10px;
+      font-size: 14px;
+      text-align: center;
+
+    }
+    .stamp{
+      color:white;
+      font-family: sans-serif;
+        font-weight: 1;
+      font-size: 200%;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+    }
